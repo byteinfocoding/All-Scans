@@ -1,0 +1,10 @@
+
+
+.idea
+.vscode
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
