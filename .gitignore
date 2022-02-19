@@ -1,6 +1,9 @@
 
 !**/pom.xml
 !**/src/main/**
+**/mvnw
+**/mvnw.cmd
+**/.mvn/**
 **/src/main/**/target/
 **/src/test/**/target/
 target/
