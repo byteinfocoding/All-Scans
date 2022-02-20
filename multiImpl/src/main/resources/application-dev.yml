@@ -1,0 +1,10 @@
+server:
+  port: 801
+
+
+# 搜索模式 可选 elasticsearch或mysql
+
+search:
+    mode:
+      mysql:
+      elasticsearch: true
