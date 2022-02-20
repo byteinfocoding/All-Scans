@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.byteinfo.multiimpl.strategy.SearchStrategy;
+import top.byteinfo.multiimpl.strategy.context.PayStrategyContext;
 import top.byteinfo.multiimpl.strategy.impl.WeChatPayStrategy;
 
 import java.util.EnumMap;
@@ -41,6 +42,8 @@ class MultiImplApplicationTests {
     WeChatPayStrategy weChatPayStrategy;
 
 
+    @Autowired
+    PayStrategyContext payStrategyContext;
     static int[] t1() {
         int[] inta = {1, 2, 34, 6};
 
@@ -55,13 +58,15 @@ class MultiImplApplicationTests {
     @Test
     void contextLoads() {
 
-        System.out.println(t2());
+        payStrategyContext.getStrategy(BizTypeEnum.Alipay).bizProcess(new RequestDTO());
 
-        List<String> stringList = searchStrategy.searchArticle("ssss");
 
-        System.out.println(stringList);
 
-        BizTypeEnum bizType = weChatPayStrategy.getBizType();
+//        List<String> stringList = searchStrategy.searchArticle("ssss");
+//
+//        System.out.println(stringList);
+//
+//        BizTypeEnum bizType = weChatPayStrategy.getBizType();
     }
 
 }

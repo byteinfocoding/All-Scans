@@ -29,6 +29,14 @@ public class PayStrategyContext implements BeanPostProcessor {
 //
 //        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
 //    }
+
+    /**
+     * all beans in ifn
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public Object postProcessAfterInitialization(@NotNull Object bean, @NotNull String beanName) throws BeansException {
         if (bean instanceof PayStrategy) {
