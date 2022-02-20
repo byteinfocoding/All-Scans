@@ -31,8 +31,9 @@ public class PayStrategyContext implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(@NotNull Object bean, @NotNull String beanName) throws BeansException {
         if (bean instanceof PayStrategy) {
-            PayStrategy strategy = (PayStrategy) bean;
-            strategies.put(strategy.getBizType(), strategy);
+            PayStrategy Paystrategy = (PayStrategy) bean;
+            strategies.put(Paystrategy.getBizType(), Paystrategy);
+
             System.out.println("strategy {} registered"+","+beanName);
         }
         return bean;
