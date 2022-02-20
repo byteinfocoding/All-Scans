@@ -18,16 +18,15 @@ class MultiImplApplicationTests {
 
     /**
      * not recommended
-     *  But,
+     * But,
      * Need to learn its principle or sourcecode
      */
     @Autowired
     private Map<String, SearchStrategy> searchStrategyMap;
 
 
-
-
     private final Map<BizTypeEnum, SearchStrategy> strategies = new EnumMap<>(BizTypeEnum.class);
+
     /**
      * 根据业务类型获取策略对象
      *
@@ -42,10 +41,21 @@ class MultiImplApplicationTests {
     WeChatPayStrategy weChatPayStrategy;
 
 
+    static int[] t1() {
+        int[] inta = {1, 2, 34, 6};
+
+        return inta;
+    }
+
+    @Test
+    int t2() {
+        return t1()[0];
+    }
 
     @Test
     void contextLoads() {
 
+        System.out.println(t2());
 
         List<String> stringList = searchStrategy.searchArticle("ssss");
 

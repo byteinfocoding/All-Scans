@@ -3,12 +3,13 @@ package top.byteinfo.multiimpl.strategy.context;
 import com.sun.istack.internal.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 import top.byteinfo.multiimpl.BizTypeEnum;
 import top.byteinfo.multiimpl.strategy.PayStrategy;
 
 import java.util.EnumMap;
 import java.util.Map;
-
+@Component
 public class PayStrategyContext implements BeanPostProcessor {
     private final Map<BizTypeEnum, PayStrategy> strategies = new EnumMap<>(BizTypeEnum.class);
 
