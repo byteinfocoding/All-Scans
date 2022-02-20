@@ -2,7 +2,7 @@ package top.byteinfo.multiimpl.strategy.impl;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
-import top.byteinfo.multiimpl.SearchStrategy;
+import top.byteinfo.multiimpl.strategy.SearchStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

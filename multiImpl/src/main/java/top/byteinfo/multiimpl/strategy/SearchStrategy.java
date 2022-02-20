@@ -1,4 +1,4 @@
-package top.byteinfo.multiimpl;
+package top.byteinfo.multiimpl.strategy;
 
 
 import java.util.List;
