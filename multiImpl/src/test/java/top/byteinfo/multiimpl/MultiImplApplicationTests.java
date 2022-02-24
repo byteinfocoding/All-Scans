@@ -7,8 +7,6 @@ import top.byteinfo.multiimpl.strategy.SearchStrategy;
 import top.byteinfo.multiimpl.strategy.context.PayStrategyContext;
 import top.byteinfo.multiimpl.strategy.impl.WeChatPayStrategy;
 
-import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 
 @SpringBootTest
@@ -25,28 +23,15 @@ class MultiImplApplicationTests {
     @Autowired
     private Map<String, SearchStrategy> searchStrategyMap;
 
-
-    private final Map<BizTypeEnum, SearchStrategy> strategies = new EnumMap<>(BizTypeEnum.class);
-
-    /**
-     * 根据业务类型获取策略对象
-     *
-     * @param ruleType 规则类型
-     * @return 策略对象
-     */
-    public SearchStrategy getStrategy(BizTypeEnum ruleType) {
-        return strategies.get(ruleType);
-    }
-
     @Autowired
     WeChatPayStrategy weChatPayStrategy;
 
 
     @Autowired
     PayStrategyContext payStrategyContext;
+
     static int[] t1() {
         int[] inta = {1, 2, 34, 6};
-
         return inta;
     }
 
@@ -54,19 +39,21 @@ class MultiImplApplicationTests {
     int t2() {
         return t1()[0];
     }
+    static String t3(){
+        String[] strings={
+                "s1","s2","s3"
+        };
+        return strings[1];
+    }
+
+
 
     @Test
     void contextLoads() {
-
+        searchStrategy.searchArticle("");
+        System.out.println(t3());
         payStrategyContext.getStrategy(BizTypeEnum.Alipay).bizProcess(new RequestDTO());
 
-
-
-//        List<String> stringList = searchStrategy.searchArticle("ssss");
-//
-//        System.out.println(stringList);
-//
-//        BizTypeEnum bizType = weChatPayStrategy.getBizType();
     }
 
 }

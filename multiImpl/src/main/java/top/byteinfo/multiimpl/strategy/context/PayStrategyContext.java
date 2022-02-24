@@ -24,11 +24,6 @@ public class PayStrategyContext implements BeanPostProcessor {
         return strategies.get(ruleType);
     }
 
-//    @Override
-//    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-//
-//        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
-//    }
 
     /**
      * all beans in ifn
