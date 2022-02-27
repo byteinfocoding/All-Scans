@@ -50,11 +50,11 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
-  <select id="selectByPrimaryName" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select id, username, `password`, icon, email, nick_name, note, create_time, login_time,
            `status`
     from ums_admin
-    where id = #{id,jdbcType=BIGINT}
+    where username = #{username,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, username, `password`, icon, email, nick_name, note, create_time, login_time, 

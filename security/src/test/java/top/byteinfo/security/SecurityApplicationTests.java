@@ -1,10 +1,10 @@
-package top.byteinfo.mallsecurity;
+package top.byteinfo.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MallSecurityApplicationTests {
+class SecurityApplicationTests {
 
     @Test
     void contextLoads() {
