@@ -29,9 +29,9 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
   # redis配置
-  redis:
-    host: 192.168.1.11
-    port: 6379
+#  redis:
+#    host: 192.168.1.11
+#    port: 6379
 #    password: Redis密码
   # mq配置
   rabbitmq:
