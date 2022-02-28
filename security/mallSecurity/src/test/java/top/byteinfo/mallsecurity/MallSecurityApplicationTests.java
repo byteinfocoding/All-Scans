@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.access.AccessDecisionVoter;
+import org.springframework.security.access.vote.AbstractAccessDecisionManager;
 import top.byteinfo.mallsecurity.dao.UmsAdminMapper;
 import top.byteinfo.mallsecurity.dao.UmsResourceMapper;
 import top.byteinfo.mallsecurity.utils.JSON;
@@ -15,6 +17,8 @@ class MallSecurityApplicationTests {
     @Autowired
     UmsResourceMapper umsResourceMapper;
 
+    AbstractAccessDecisionManager abstractAccessDecisionManager;
+    AccessDecisionVoter accessDecisionVoter;
     @Test
     void contextLoads() throws JsonProcessingException {
 //        List<UmsAdmin> admin = umsAdminMapper.selectByPrimaryName("admin");
