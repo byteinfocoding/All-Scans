@@ -33,11 +33,11 @@ import static top.byteinfo.blogsecurity.model.ZoneEnum.SHANGHAI;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private UserAuthDao userAuthDao;
+    private UserAuthDao userAuthDao;//tb_user_auth
     @Autowired
-    private UserInfoDao userInfoDao;
+    private UserInfoDao userInfoDao;//tb_user_info
     @Autowired
-    private RoleDao roleDao;
+    private RoleDao roleDao;//tb_role
     //    @Autowired
 //    private RedisService redisService;
     @Resource

@@ -26,4 +26,10 @@ public interface UmsAdminService {
      * 查询全部资源
      */
     List<UmsResource> listAll();
+
+    /**
+     * 刷新token的功能
+     * @param oldToken 旧的token
+     */
+    String refreshToken(String oldToken);
 }

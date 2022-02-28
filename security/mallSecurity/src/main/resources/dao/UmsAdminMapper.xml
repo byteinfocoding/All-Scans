@@ -50,15 +50,16 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, username, `password`, icon, email, nick_name, note, create_time, login_time, 
+    `status`
+    from ums_admin
+  </select>
   <select id="selectByPrimaryName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select id, username, `password`, icon, email, nick_name, note, create_time, login_time,
            `status`
     from ums_admin
     where username = #{username,jdbcType=VARCHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, username, `password`, icon, email, nick_name, note, create_time, login_time, 
-    `status`
-    from ums_admin
   </select>
 </mapper>

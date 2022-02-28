@@ -14,9 +14,8 @@ public interface UmsAdminMapper {
 
     UmsAdmin selectByPrimaryKey(Long id);
 
-    List<UmsAdmin> selectByPrimaryName(String username);
-
     List<UmsAdmin> selectAll();
 
     int updateByPrimaryKey(UmsAdmin record);
+    List<UmsAdmin> selectByPrimaryName(String username);
 }

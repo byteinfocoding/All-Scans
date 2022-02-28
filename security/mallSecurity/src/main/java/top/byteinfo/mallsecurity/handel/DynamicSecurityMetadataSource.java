@@ -57,6 +57,7 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
          * getParameter("p 1")     yes     c d
          */
         String url = ((FilterInvocation) o).getRequestUrl();
+
         String path = ((FilterInvocation) o).getHttpRequest().getRequestURI();
 
 

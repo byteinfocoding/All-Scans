@@ -87,4 +87,9 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     public List<UmsResource> listAll() {
         return resourceMapper.selectAll();
     }
+
+    @Override
+    public String refreshToken(String oldToken) {
+        return jwtTokenUtil.refreshHeadToken(oldToken);
+    }
 }

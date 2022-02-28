@@ -1,7 +1,6 @@
 package top.byteinfo.mallsecurity.handel;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
 import org.springframework.security.access.intercept.InterceptorStatusToken;
@@ -35,26 +34,35 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         FilterInvocation fi = new FilterInvocation(servletRequest, servletResponse, filterChain);
-        //OPTIONS请求直接放行
-        if(request.getMethod().equals(HttpMethod.OPTIONS.toString())){
+//        //OPTIONS请求直接放行
+//        if(request.getMethod().equals(HttpMethod.OPTIONS.toString())){
+//            fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+//            return;
+//        }
+//        //白名单请求直接放行
+        PathMatcher pathMatcher = new AntPathMatcher();
+        String requestURI = request.getRequestURI();
+        String path = "/admin/login";
+        if (pathMatcher.match(path, requestURI)) {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
             return;
         }
-        //白名单请求直接放行
-        PathMatcher pathMatcher = new AntPathMatcher();
-        for (String path : ignoreUrlsConfig.getUrls()) {
-            String requestURI = request.getRequestURI();
-            if(pathMatcher.match(path,requestURI)){
-                fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
-                return;
-            }
-        }
+//        for (String path : ignoreUrlsConfig.getUrls()) {
+//            String requestURI = request.getRequestURI();
+//            if(pathMatcher.match(path,requestURI)){
+//                fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+//                return;
+//            }
+//        }
+        System.out.println("+++++++++++");
 //        filterChain.doFilter(servletRequest,servletResponse);
         //此处会调用AccessDecisionManager中的decide方法进行鉴权操作
         InterceptorStatusToken token = super.beforeInvocation(fi);
+        System.out.println("======");
+//        fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
         try {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
         } finally {
