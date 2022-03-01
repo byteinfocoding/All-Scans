@@ -1,6 +1,7 @@
 package top.byteinfo.blogsecurity.handler;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
@@ -23,6 +24,7 @@ import java.util.List;
  * @date 2021/07/27
  */
 @Component
+@Slf4j
 public class FilterInvocationSecurityMetadataSourceImpl implements FilterInvocationSecurityMetadataSource {
 
     /**
@@ -58,9 +60,11 @@ public class FilterInvocationSecurityMetadataSourceImpl implements FilterInvocat
         FilterInvocation fi = (FilterInvocation) object;
         // 获取用户请求方式
         String method = fi.getRequest().getMethod();
+        log.info(method);
 //        System.out.println(method);
         // 获取用户请求Url
         String url = fi.getRequest().getRequestURI();
+
 //        System.out.println(url);
         AntPathMatcher antPathMatcher = new AntPathMatcher();
         // 获取接口角色信息，若为匿名接口则放行，若无对应角色则禁止
