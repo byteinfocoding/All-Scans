@@ -17,5 +17,7 @@ public @interface OptLog {
      * @return 操作类型
      */
     String optType() default "";
+    String value() default "";
+
 
 }

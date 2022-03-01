@@ -2,6 +2,7 @@ package top.byteinfo.aop.aspect;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import top.byteinfo.aop.annotation.OptLog;
+import top.byteinfo.aop.entity.OperationLog;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
@@ -24,6 +26,7 @@ import java.util.Objects;
  */
 @Aspect
 @Component
+@Slf4j
 public class OptLogAspect {
 
 //    @Autowired
@@ -33,7 +36,8 @@ public class OptLogAspect {
      * 设置操作日志切入点 记录操作日志 在注解的位置切入代码
      */
     @Pointcut("@annotation(top.byteinfo.aop.annotation.OptLog)")
-    public void optLogPointCut() {}
+    public void optLogPointCut() {
+    }
 
 
     /**
@@ -48,7 +52,7 @@ public class OptLogAspect {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         // 从获取RequestAttributes中获取HttpServletRequest的信息
         HttpServletRequest request = (HttpServletRequest) Objects.requireNonNull(requestAttributes).resolveReference(RequestAttributes.REFERENCE_REQUEST);
-//        OperationLog operationLog = new OperationLog();
+        OperationLog operationLog = new OperationLog();
         // 从切面织入点处通过反射机制获取织入点处的方法
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         // 获取切入点所在的方法
@@ -68,6 +72,34 @@ public class OptLogAspect {
         // 获取请求的方法名
         String methodName = method.getName();
         methodName = className + "." + methodName;
+
+        String name = joinPoint.getTarget().getClass().getName();
+        log.info(name);
+        Object[] args = joinPoint.getArgs();
+//        String s = JSON.toJSONString(args);
+//        log.info(s);
+
+        // attention !!!
+        assert request != null;
+        String requestMethod = request.getMethod();
+        log.info(requestMethod);
+
+
+        String[] tags = api.tags();
+        log.info(tags.toString());
+
+
+//        String value = apiOperation.value();
+        if (apiOperation.value() == null) {
+
+        }
+        operationLog.setIpAddress(Objects.requireNonNull(apiOperation.value()));
+
+
+        String optType = optLog.optType();
+        log.info(optType);
+
+
 //        // 请求方式
 //        operationLog.setRequestMethod(Objects.requireNonNull(request).getMethod());
 //        // 请求方法
@@ -81,6 +113,7 @@ public class OptLogAspect {
 //        // 请求用户
 //        operationLog.setNickname(UserUtils.getLoginUser().getNickname());
 //        // 请求IP
+        //TODO
 //        String ipAddress = IpUtils.getIpAddress(request);
 //        operationLog.setIpAddress(ipAddress);
 //        operationLog.setIpSource(IpUtils.getIpSource(ipAddress));
