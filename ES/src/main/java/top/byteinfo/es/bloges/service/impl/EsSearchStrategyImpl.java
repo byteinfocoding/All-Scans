@@ -52,6 +52,10 @@ public class EsSearchStrategyImpl implements SearchStrategy {
     public static boolean isNotEmpty(Collection<?> coll) {
         return !isEmpty(coll);
     }
+
+
+
+
     @Override
     public List<ArticleSearchDTO> searchArticle(String keywords) {
 
