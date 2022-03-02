@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generator.properties"/>
+    <!--    https://mybatis.org/generator/configreference/context.html-->
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--生成mapper.xml时覆盖原文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <!--top.byteinfo.orms.mbga.CommentGenerator-->
+        <commentGenerator type="top.byteinfo.orms.mbga.CommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <!--        &lt;!&ndash;非必须，类型处理器，在数据库类型和java类型之间的转换控制&ndash;&gt;-->
+        <!--        <javaTypeResolver>-->
+        <!--            &lt;!&ndash; 默认情况下数据库中的 decimal，bigInt 在 Java 对应是 sql 下的 BigDecimal 类 &ndash;&gt;-->
+        <!--            &lt;!&ndash; 不是 double 和 long 类型 &ndash;&gt;-->
+        <!--            &lt;!&ndash; 使用常用的基本类型代替 sql 包下的引用类型 &ndash;&gt;-->
+        <!--            <property name="forceBigDecimals" value="false"/>-->
+        <!--        </javaTypeResolver>-->
+
+        <javaModelGenerator targetPackage="top.byteinfo.orms.mbga.model" targetProject="ORMs\mbga\src\main\java"/>
+
+        <sqlMapGenerator targetPackage="top.byteinfo.orms.mbga.mapper" targetProject="ORMs\mbga\src\main\resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="top.byteinfo.orms.mbga.mapper"
+                             targetProject="ORMs\mbga\src\main\java"/>
+        <!--生成全部表tableName设为%-->
+        <table tableName="ums_admin">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+<!--        https://mybatis.org/generator/configreference/table.html-->
+        <!-- tableName是数据库中的表名，domainObjectName是生成的JAVA模型名，后面的参数不用改，要生成更多的表就在下面继续加table标签 -->
+        <table tableName="ums_role" domainObjectName="Post.UmsRole"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
