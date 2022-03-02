@@ -1,0 +1,14 @@
+# 配置mysql数据库
+spring:
+
+  rabbitmq:
+    host: 192.168.1.11
+    port: 5672
+#    username: rabbitmq用户名
+#    password: rabbitmq密码
+#    listener:
+#      simple:
+#        retry:
+#          enabled: true
+#          max-attempts: 3 #最大重试次数
+#          initial-interval: 3000 #重试间隔时间（单位毫秒）

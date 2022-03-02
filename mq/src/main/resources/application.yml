@@ -1,0 +1,25 @@
+# 配置mysql数据库
+spring:
+  mail:
+    host: smtp.qq.com
+    username:
+    password: 邮箱授权码
+    default-encoding: UTF-8
+    port: 587
+    properties:
+      mail:
+      smtp:
+      auth: true
+      socketFactory:
+      class: javax.net.ssl.SSLSocketFactory
+  rabbitmq:
+    host: 192.168.1.11
+    port: 5672
+#    username: rabbitmq用户名
+#    password: rabbitmq密码
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3 #最大重试次数
+          initial-interval: 3000 #重试间隔时间（单位毫秒）
