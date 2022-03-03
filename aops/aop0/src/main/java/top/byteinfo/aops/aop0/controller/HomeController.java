@@ -13,4 +13,16 @@ public class HomeController {
     public Result<?> aop1(){
         return Result.builder().data("aop1").statusCode(200).build();
     }
+    @GetMapping("aop2")
+    public Result<?> aop2(){
+        return Result.builder().data("aop2").statusCode(200).build();
+    }
+    @GetMapping("aop3")
+    public Result<?> aop3(){
+        return Result.builder().data("aop3").statusCode(200).build();
+    }
+    @GetMapping("aop4")
+    public Result<?> aop4(){
+        return Result.builder().data("aop4").statusCode(200).build();
+    }
 }

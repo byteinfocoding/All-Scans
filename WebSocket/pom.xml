@@ -9,23 +9,41 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.byteinfo</groupId>
-    <artifactId>JSON</artifactId>
+    <artifactId>WebSocket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>JSON</name>
-    <description>JSON</description>
+    <name>WebSocket</name>
+    <description>WebSocket</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <!--fastJson-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.76</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.5</version>
+        </dependency>
+
+        <!-- 阿里云oss-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+        <!-- swagger文档 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.7</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

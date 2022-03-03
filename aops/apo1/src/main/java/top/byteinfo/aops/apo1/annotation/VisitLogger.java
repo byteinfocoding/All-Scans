@@ -1,6 +1,6 @@
 package top.byteinfo.aops.apo1.annotation;
 
-import top.naccl.enums.VisitBehavior;
+import top.byteinfo.aops.apo1.model.VisitBehavior;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
