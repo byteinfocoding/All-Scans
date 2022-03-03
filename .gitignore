@@ -14,3 +14,4 @@ target/
 *.suo
 *.ntvs*
 *.njsproj
+/Utils/src/main/java/top/byteinfo/utils/nblog/util/

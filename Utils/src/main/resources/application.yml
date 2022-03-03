@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  mail:
+    host: smtp.mxhichina.com
+    port: 25
+    username: coding
+    password: bytecoding
+
+blog:
+  name: coding's blog
+  api: http://localhost:${server.port}
+  cms: http://localhost:8085
+  view: http://localhost:8086
+
+
+upload:
+  github:
+    token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    username: Naccl
+    repos=test:
+    repos-path: /comment/avatar
+
+
+
+  file:
+    resources-locations: file${upload.file.path}
+    access-path: /image/**
+    path: /Users/naccl/Desktop/upload/
+
