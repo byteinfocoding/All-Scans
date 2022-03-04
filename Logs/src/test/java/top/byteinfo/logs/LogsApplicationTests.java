@@ -1,17 +1,13 @@
-package top.byteinfo.utils;
+package top.byteinfo.logs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Date;
-
 @SpringBootTest
-class UtilsApplicationTests {
+class LogsApplicationTests {
 
     @Test
     void contextLoads() {
-
-//        DateUtils.setSeconds()
     }
 
 }
