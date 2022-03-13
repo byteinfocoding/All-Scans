@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: service-hi
+          uri: http://127.0.0.1:8081/
+          predicates:
+            - Path=/
+#            filters:
+#              - StripPrefix=1
+#              - RequestTime=true
