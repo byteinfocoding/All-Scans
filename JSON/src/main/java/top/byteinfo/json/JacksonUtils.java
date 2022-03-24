@@ -12,7 +12,7 @@ import java.io.InputStream;
  * @Author: Naccl
  * @Date: 2020-11-07
  */
-public class JacksonUtils {
+public  class JacksonUtils {
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
 	public static String writeValueAsString(Object value) {

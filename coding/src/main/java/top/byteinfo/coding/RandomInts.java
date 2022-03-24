@@ -1,6 +1,7 @@
 package top.byteinfo.coding;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class RandomInts {
 
@@ -8,6 +9,7 @@ public class RandomInts {
         Random random =new Random();
 
         int[] nums = random.ints(min,max).limit(limit).toArray();
+        int[] nums1 = random.ints(min,max).limit(limit).map(i->i++).toArray();
         return nums;
 
     }
@@ -17,4 +19,8 @@ public class RandomInts {
         return random.nextInt(max);
     }
 
+//    public static IntStream f(int i){
+//        IntStream.
+//        return
+//    }
 }

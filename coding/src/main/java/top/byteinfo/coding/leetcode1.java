@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class leetcode1 {
+    public static void main(String[] args) {
+
+    }
 
     public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();

@@ -1,8 +1,10 @@
 package top.byteinfo.coding;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.Arrays;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class CodingApplication {
 
     public static void main(String[] args) {
